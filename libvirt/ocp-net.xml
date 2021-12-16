@@ -10,6 +10,7 @@
 		<dhcp>
 			<range start='192.168.123.2' end='192.168.123.254' />
 			<host mac="02:01:00:00:00:66" name="node.itix-dev.ocp.itix" ip="192.168.123.5" />
+			<host mac="52:54:00:20:6e:e7" name="fedora.ocp.itix" ip="192.168.123.192" />
 		</dhcp>
 	</ip>
 	<dns>
@@ -24,11 +25,6 @@
 		<dnsmasq:option value="auth-zone=itix-dev.ocp.itix" />
 		<!-- Wildcard route -->
 		<dnsmasq:option value="host-record=lb.itix-dev.ocp.itix,192.168.123.5" />
-		<dnsmasq:option value="cname=*.apps.itix-dev.ocp.itix,lb.itix-dev.ocp.itix" />
+		<dnsmasq:option value="cname=*.apps.itix-dev.ocp.itix,*.apps-ix.itix-dev.ocp.itix,lb.itix-dev.ocp.itix" />
 	</dnsmasq:options>
-	<filter name='no-redhat-registry' chain='ipv4'>
-		<rule action='drop' direction='out'>
-			<ip match='no' dstipaddr='23.3.108.132' />
-		</rule>
-	</filter>
 </network>

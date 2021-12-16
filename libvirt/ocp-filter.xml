@@ -1,0 +1,5 @@
+<filter name='no-redhat-registry' chain='ipv4'>
+	<rule action='drop' direction='out'>
+		<ip match='no' dstipaddr='23.3.108.132' />
+	</rule>
+</filter>
